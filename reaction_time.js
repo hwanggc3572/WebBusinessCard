@@ -1,7 +1,8 @@
 var screen = document.querySelector('#screen');
+var record_screen = document.querySelector('#record');
 var startTime;
 var endTime;
-var record = [];
+var record;
 var timeout;
 
 
@@ -28,8 +29,8 @@ screen.addEventListener('click', function() {
     }
   } else if(screen.classList.contains('now')) {
     endTime = new Date();
-    record.push(endTime - startTime);
-    console.log(record);
+    record = endTime - startTime;
+    record_screen.textContent = record/1000 + "sec";
     startTime = null;
     endTime = null;
     screen.classList.remove('now');
